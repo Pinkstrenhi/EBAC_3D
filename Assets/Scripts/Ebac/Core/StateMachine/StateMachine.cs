@@ -3,31 +3,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using UnityEngine.UIElements;
 
-
-public class StateMachine : MonoBehaviour
+public class Test
 {
-   public static StateMachine Instance;
-   #region Enum
-      public enum States
-      {
-         None
-      }
-      
-   #endregion
-   public Dictionary<States, StateBase> DictionaryState;
+   public enum typeTest
+   {
+      Idle
+   }
+
+   public void TheRealTest()
+   {
+      StateMachine<typeTest> stateMachine = new StateMachine<typeTest>();
+      stateMachine.RegisterStates(Test.typeTest.Idle, new StateBase());
+   }
+}
+
+public class StateMachine<T> where T : System.Enum
+{
+   public Dictionary<T, StateBase> DictionaryState;
    private StateBase _currentState;
    public float timeToStartGame = 1f;
 
-   #region UnityMethods
-      private void Awake()
+   public StateBase CurrentState
+   {
+      get
       {
-         Instance = this;
-         DictionaryState = new Dictionary<States, StateBase>();
-         DictionaryState.Add(States.None, new StateBase());
-         Invoke(nameof(StartGame),timeToStartGame);
+         return _currentState;
       }
-      private void Update()
+   }
+
+   
+   #region UnityMethods
+      public void RegisterStates(T typeEnum,StateBase stateBase)
+      {
+         //DictionaryState = new Dictionary<T, StateBase>();
+         DictionaryState.Add(typeEnum,stateBase);
+      }
+      public void Update()
       {
          if (_currentState != null)
          {
@@ -38,20 +51,7 @@ public class StateMachine : MonoBehaviour
    #endregion
 
    #region Switch
-   
-      [Button]
-      private void StartGame()
-      {
-         SwitchStates(States.None);
-      }
-      #if UNITY_EDITOR
-         [Button]
-         private void SwitchStatesToNone()
-         {
-            SwitchStates(States.None);
-         }
-      #endif
-      public void SwitchStates(States state)
+   public void SwitchStates(T state)
       {
          if (_currentState != null)
          {
@@ -69,13 +69,8 @@ public class StateMachine : MonoBehaviour
 
    #endregion
 
-   #region Reset
-
-      public void ResetPosition()
-      {
-         SwitchStates(States.None);
-      }
-
-   #endregion
-   
+   public void Init()
+   {
+      DictionaryState = new Dictionary<T, StateBase>();
+   }
 }
