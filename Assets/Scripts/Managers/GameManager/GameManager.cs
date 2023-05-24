@@ -28,10 +28,10 @@ public class GameManager : Singleton<GameManager>
         stateMachine = new StateMachine<GameStates>();
         stateMachine.Init();
         stateMachine.RegisterStates(GameStates.Intro,new GMStates_Intro());
-        stateMachine.RegisterStates(GameStates.Gameplay,new StateBase());
-        stateMachine.RegisterStates(GameStates.Pause,new StateBase());
-        stateMachine.RegisterStates(GameStates.Win,new StateBase());
-        stateMachine.RegisterStates(GameStates.Lose,new StateBase());
+        stateMachine.RegisterStates(GameStates.Gameplay,new GMStates_Gameplay());
+        stateMachine.RegisterStates(GameStates.Pause,new GMStates_Pause());
+        stateMachine.RegisterStates(GameStates.Win,new GMStates_Win());
+        stateMachine.RegisterStates(GameStates.Lose,new GMStates_Lose());
         
         stateMachine.SwitchStates(GameStates.Intro);
     }
