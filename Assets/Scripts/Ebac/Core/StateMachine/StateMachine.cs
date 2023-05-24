@@ -3,43 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
-using UnityEngine.UIElements;
 
-public class Test
+namespace Ebac.StateMachine
 {
-   public enum typeTest
+   public class StateMachine<T> where T : System.Enum
    {
-      Idle
-   }
-
-   public void TheRealTest()
-   {
-      StateMachine<typeTest> stateMachine = new StateMachine<typeTest>();
-      stateMachine.RegisterStates(Test.typeTest.Idle, new StateBase());
-   }
-}
-
-public class StateMachine<T> where T : System.Enum
-{
-   public Dictionary<T, StateBase> DictionaryState;
-   private StateBase _currentState;
-   public float timeToStartGame = 1f;
-
-   public StateBase CurrentState
-   {
-      get
-      {
-         return _currentState;
-      }
-   }
-
-   
-   #region UnityMethods
-      public void RegisterStates(T typeEnum,StateBase stateBase)
-      {
-         //DictionaryState = new Dictionary<T, StateBase>();
-         DictionaryState.Add(typeEnum,stateBase);
-      }
+      public Dictionary<T, StateBase> DictionaryState;
+      private StateBase _currentState;
+      public float timeToStartGame = 1f;
+      
       public void Update()
       {
          if (_currentState != null)
@@ -47,11 +19,25 @@ public class StateMachine<T> where T : System.Enum
             _currentState.OnStateStay();
          }
       }
+      public void Init()
+      {
+         DictionaryState = new Dictionary<T, StateBase>();
+      }
+      public StateBase CurrentState
+      {
+         get { return _currentState; }
+      }
 
-   #endregion
-
-   #region Switch
-   public void SwitchStates(T state)
+      /*public StateMachine(T state)
+      {
+         DictionaryState = new Dictionary<T, StateBase>();
+         SwitchStates(state);
+      }*/
+      public void RegisterStates(T typeEnum, StateBase stateBase)
+      {
+         DictionaryState.Add(typeEnum, stateBase);
+      }
+      public void SwitchStates(T state)
       {
          if (_currentState != null)
          {
@@ -64,13 +50,6 @@ public class StateMachine<T> where T : System.Enum
          {
             _currentState.OnStateEnter();
          }
-
       }
-
-   #endregion
-
-   public void Init()
-   {
-      DictionaryState = new Dictionary<T, StateBase>();
    }
 }

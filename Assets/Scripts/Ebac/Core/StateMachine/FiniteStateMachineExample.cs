@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Ebac.StateMachine;
 
 public class FiniteStateMachineExample : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class FiniteStateMachineExample : MonoBehaviour
         stateMachine.Init();
         stateMachine.RegisterStates(ExampleEnum.State01,new StateBase());
         stateMachine.RegisterStates(ExampleEnum.State02,new StateBase());
-        //
+        
+        stateMachine.SwitchStates(ExampleEnum.State01);
     }
 }

@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
-#region StatesBase
-
+namespace Ebac.StateMachine
+{
     public class StateBase
     {
-        
         public virtual void OnStateEnter(object o = null)
         {
             //Debug.Log("OnStateEnter");
@@ -23,4 +22,4 @@ using UnityEngine;
             //Debug.Log("OnStateExit");
         }
     }
-#endregion
+}
