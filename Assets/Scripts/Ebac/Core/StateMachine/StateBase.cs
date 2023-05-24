@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.Timeline.Actions;
+using UnityEngine;
+
+#region StatesBase
+
+    public class StateBase
+    {
+        
+        public virtual void OnStateEnter(object o = null)
+        {
+            //Debug.Log("OnStateEnter");
+        }
+
+        public virtual void OnStateStay()
+        {
+            //Debug.Log("OnStateStay");
+        }
+
+        public virtual void OnStateExit()
+        {
+            //Debug.Log("OnStateExit");
+        }
+    }
+#endregion
