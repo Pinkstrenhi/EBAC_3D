@@ -11,11 +11,20 @@ public class Player : MonoBehaviour
     public float speedRotation = 300f;
     public float gravity = 9.8f;
     private float _speedVertical = 0f;
+    public float speedJump = 15f;
     private void Update()
     {
         transform.Rotate(0,Input.GetAxis("Horizontal") * speedRotation * Time.deltaTime,0);
         var inputAxisVertical = Input.GetAxis("Vertical");
         var movementVertical = transform.forward * inputAxisVertical* speedMovement;
+        if (characterController.isGrounded)
+        {
+            _speedVertical = 0;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _speedVertical = speedJump;
+            }
+        }
         _speedVertical -= gravity * Time.deltaTime;
         movementVertical.y = _speedVertical;
         characterController.Move(movementVertical * Time.deltaTime);
