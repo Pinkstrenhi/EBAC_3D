@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Animator animator;
     public CharacterController characterController;
     public float speedMovement = 25f;
     public float speedRotation = 300f;
@@ -13,9 +14,12 @@ public class Player : MonoBehaviour
     private void Update()
     {
         transform.Rotate(0,Input.GetAxis("Horizontal") * speedRotation * Time.deltaTime,0);
-        var verticalMovement = transform.forward * Input.GetAxis("Vertical") * speedMovement;
+        var inputAxisVertical = Input.GetAxis("Vertical");
+        var movementVertical = transform.forward * inputAxisVertical* speedMovement;
         _speedVertical -= gravity * Time.deltaTime;
-        verticalMovement.y = _speedVertical;
-        characterController.Move(verticalMovement * Time.deltaTime);
+        movementVertical.y = _speedVertical;
+        characterController.Move(movementVertical * Time.deltaTime);
+        
+        animator.SetBool("Run",inputAxisVertical != 0);
     }
 }
