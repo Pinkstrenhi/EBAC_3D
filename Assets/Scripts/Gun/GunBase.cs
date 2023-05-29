@@ -10,7 +10,7 @@ public class GunBase : MonoBehaviour
     public float timeBetweenShoot = 0.2f;
     private Coroutine _currentCoroutine;
 
-    IEnumerator CoroutineShoot()
+    protected virtual IEnumerator CoroutineShoot()
     {
         while (true)
         {
@@ -18,7 +18,7 @@ public class GunBase : MonoBehaviour
            yield return new WaitForSeconds(timeBetweenShoot);
         }
     }
-    private void Shoot()
+    protected virtual void Shoot()
     {
         var projectile = Instantiate(projectileBase);
         projectile.transform.position = positionToShoot.position; 

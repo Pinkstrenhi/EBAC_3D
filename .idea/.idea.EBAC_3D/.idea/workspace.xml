@@ -11,6 +11,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Inputs/Inputs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ebac/Core/StateMachine/FiniteStateMachineExample.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ebac/Core/StateMachine/StateMachineEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gun/GunShootLimit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/GameManager/Editor/GameManagerEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/GameManager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/GameManager/States/GMStates_Gameplay.cs" root0="FORCE_HIGHLIGHTING" />
@@ -94,7 +95,8 @@
       <workItem from="1684941182958" duration="944000" />
       <workItem from="1685160759959" duration="1321000" />
       <workItem from="1685219908679" duration="4515000" />
-      <workItem from="1685324707581" duration="3393000" />
+      <workItem from="1685324707581" duration="3543000" />
+      <workItem from="1685359994489" duration="1770000" />
     </task>
     <servers />
   </component>
