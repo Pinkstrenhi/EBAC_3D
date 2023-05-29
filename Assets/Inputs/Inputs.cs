@@ -35,6 +35,24 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeToGunShootLimit"",
+                    ""type"": ""Button"",
+                    ""id"": ""f1330a68-319f-44dd-a42e-b4c315748a1e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeToGunShootAngle"",
+                    ""type"": ""Button"",
+                    ""id"": ""7292e18d-3807-4e4b-95e5-b09339c1fee2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -48,6 +66,28 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0d100772-5339-4f3f-8122-08329adf1660"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeToGunShootLimit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4472ab5-475a-4174-8c44-14afe4560170"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeToGunShootAngle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -57,6 +97,8 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Shoot = m_Gameplay.FindAction("Shoot", throwIfNotFound: true);
+        m_Gameplay_ChangeToGunShootLimit = m_Gameplay.FindAction("ChangeToGunShootLimit", throwIfNotFound: true);
+        m_Gameplay_ChangeToGunShootAngle = m_Gameplay.FindAction("ChangeToGunShootAngle", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -117,11 +159,15 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Gameplay;
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Shoot;
+    private readonly InputAction m_Gameplay_ChangeToGunShootLimit;
+    private readonly InputAction m_Gameplay_ChangeToGunShootAngle;
     public struct GameplayActions
     {
         private @Inputs m_Wrapper;
         public GameplayActions(@Inputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Shoot => m_Wrapper.m_Gameplay_Shoot;
+        public InputAction @ChangeToGunShootLimit => m_Wrapper.m_Gameplay_ChangeToGunShootLimit;
+        public InputAction @ChangeToGunShootAngle => m_Wrapper.m_Gameplay_ChangeToGunShootAngle;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -134,6 +180,12 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @Shoot.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShoot;
+                @ChangeToGunShootLimit.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeToGunShootLimit;
+                @ChangeToGunShootLimit.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeToGunShootLimit;
+                @ChangeToGunShootLimit.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeToGunShootLimit;
+                @ChangeToGunShootAngle.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeToGunShootAngle;
+                @ChangeToGunShootAngle.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeToGunShootAngle;
+                @ChangeToGunShootAngle.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeToGunShootAngle;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -141,6 +193,12 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @ChangeToGunShootLimit.started += instance.OnChangeToGunShootLimit;
+                @ChangeToGunShootLimit.performed += instance.OnChangeToGunShootLimit;
+                @ChangeToGunShootLimit.canceled += instance.OnChangeToGunShootLimit;
+                @ChangeToGunShootAngle.started += instance.OnChangeToGunShootAngle;
+                @ChangeToGunShootAngle.performed += instance.OnChangeToGunShootAngle;
+                @ChangeToGunShootAngle.canceled += instance.OnChangeToGunShootAngle;
             }
         }
     }
@@ -148,5 +206,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     public interface IGameplayActions
     {
         void OnShoot(InputAction.CallbackContext context);
+        void OnChangeToGunShootLimit(InputAction.CallbackContext context);
+        void OnChangeToGunShootAngle(InputAction.CallbackContext context);
     }
 }

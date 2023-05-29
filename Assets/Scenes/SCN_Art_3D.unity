@@ -2731,7 +2731,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570309008}
-  m_LocalRotation: {x: 0.14521314, y: -1.6271901e-15, z: 2.6894993e-16, w: 0.98940045}
+  m_LocalRotation: {x: 0.14521313, y: 0.00000003296683, z: -0.000000004838502, w: 0.98940045}
   m_LocalPosition: {x: 411.08002, y: 0.3800001, z: 28.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5434,6 +5434,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunBase: {fileID: 2103326898783636340, guid: 1c35586d5805ba4449a3e13fbf9a62cb, type: 3}
   gunPosition: {fileID: 946020272}
+  prefabLimit: {fileID: 2103326898783636340, guid: 1c35586d5805ba4449a3e13fbf9a62cb, type: 3}
+  prefabAngle: {fileID: 237958277364576257, guid: 03a70852fe93f0948aa696ad3761d9f3, type: 3}
 --- !u!1001 &987381283
 PrefabInstance:
   m_ObjectHideFlags: 0

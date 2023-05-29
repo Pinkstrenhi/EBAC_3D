@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,12 +10,19 @@ public class PlayerAbilityShoot : PlayerAbilityBase
    public GunBase gunBase;
    public Transform gunPosition;
    private GunBase _currentGunBase;
+   public GunShootLimit prefabLimit;
+   public GunShootAngle prefabAngle;
+
    protected override void Init()
    {
       base.Init();
       CreateGun();
       inputs.Gameplay.Shoot.performed += context => StartShoot();
       inputs.Gameplay.Shoot.canceled += context => CancelShoot();
+      
+      inputs.Gameplay.ChangeToGunShootLimit.performed += context => ChangeGun(prefabLimit);
+      inputs.Gameplay.ChangeToGunShootAngle.performed += context => ChangeGun(prefabAngle);
+
    }
    private void CreateGun()
    {
@@ -32,5 +40,11 @@ public class PlayerAbilityShoot : PlayerAbilityBase
    {
       _currentGunBase.StopShoot();
       Debug.Log("CancelShoot");
+   }
+
+   private void ChangeGun(GunBase newGunBase)
+   {
+      Debug.Log("NewGun");
+      gunBase = newGunBase;
    }
 }
