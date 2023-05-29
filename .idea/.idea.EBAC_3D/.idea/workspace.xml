@@ -8,6 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Inputs/Inputs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ebac/Core/StateMachine/FiniteStateMachineExample.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ebac/Core/StateMachine/StateMachineEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/GameManager/Editor/GameManagerEditor.cs" root0="FORCE_HIGHLIGHTING" />
@@ -16,6 +17,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/GameManager/States/GMStates_Intro.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager/Editor/PlayerManagerEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Abilities/PlayerAbilityShoot.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -92,7 +94,7 @@
       <workItem from="1684941182958" duration="944000" />
       <workItem from="1685160759959" duration="1321000" />
       <workItem from="1685219908679" duration="4515000" />
-      <workItem from="1685324707581" duration="688000" />
+      <workItem from="1685324707581" duration="3393000" />
     </task>
     <servers />
   </component>
