@@ -1,34 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GunShootLimit : GunBase
 {
+    public List<UIGunUpdater> uiGunUpdaters;
     public float maxShoot = 5f;
     public float timeToRecharge = 1f;
     private float _currentShoots;
     private bool _recharging = false;
-    protected override IEnumerator CoroutineShoot()
+
+    private void Awake()
     {
-       /* while (true)
+        GetAllUIs();
+    }
+
+    protected override IEnumerator CoroutineShoot()
+    { 
+        if (_recharging)
         {
-            Shoot();
-            yield return new WaitForSeconds(timeBetweenShoot);
-        }*/
-       if (_recharging)
-       {
-           yield break;
-       }
-       while (true)
-       {
-           if (_currentShoots < maxShoot)
-           {
-               Shoot();
-               _currentShoots++;
-               CheckRecharge();
-               yield return new WaitForSeconds(timeBetweenShoot);
-           }
-       }
+            yield break;
+        }
+        while (true)
+        {
+            if (_currentShoots < maxShoot)
+            {
+                Shoot();
+                _currentShoots++;
+                CheckRecharge();
+                UpdateUI();
+                yield return new WaitForSeconds(timeBetweenShoot);
+            }
+        }
     }
 
     private void CheckRecharge()
@@ -52,10 +57,20 @@ public class GunShootLimit : GunBase
         while (time < timeToRecharge)
         {
             time += Time.deltaTime;
-            Debug.Log("Recharging: " + time);
+            uiGunUpdaters.ForEach(i => i.UpdateValues(time/timeToRecharge));
             yield return new WaitForEndOfFrame();
         }
         _currentShoots = 0;
         _recharging = false;
+    }
+
+    private void UpdateUI()
+    {
+        uiGunUpdaters.ForEach(i => i.UpdateValue(maxShoot,_currentShoots));
+    }
+
+    private void GetAllUIs()
+    {
+        uiGunUpdaters = GameObject.FindObjectsOfType<UIGunUpdater>().ToList();
     }
 }

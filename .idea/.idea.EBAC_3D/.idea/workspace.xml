@@ -20,6 +20,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager/Editor/PlayerManagerEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Abilities/PlayerAbilityShoot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Gun/UIGunUpdater.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -97,7 +98,7 @@
       <workItem from="1685160759959" duration="1321000" />
       <workItem from="1685219908679" duration="4515000" />
       <workItem from="1685324707581" duration="3543000" />
-      <workItem from="1685359994489" duration="3748000" />
+      <workItem from="1685359994489" duration="6860000" />
     </task>
     <servers />
   </component>
