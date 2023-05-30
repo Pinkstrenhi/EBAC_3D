@@ -12,7 +12,6 @@ public class PlayerAbilityShoot : PlayerAbilityBase
    private GunBase _currentGunBase;
    public GunShootLimit prefabLimit;
    public GunShootAngle prefabAngle;
-
    protected override void Init()
    {
       base.Init();
@@ -46,5 +45,8 @@ public class PlayerAbilityShoot : PlayerAbilityBase
    {
       Debug.Log("NewGun");
       gunBase = newGunBase;
+      Destroy(gunPosition.GetChild(0).gameObject);
+      _currentGunBase = null;
+      _currentGunBase = Instantiate(gunBase,gunPosition);
    }
 }
