@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Enemy
 {
@@ -9,7 +10,10 @@ namespace Enemy
     {
         public float startLife = 10f;
         [SerializeField]private float _currentLife;
-
+        [Header("Animation")] 
+            public float durationAnimation = 0.2f;
+            public Ease easeAnimation = Ease.OutBack;
+            public bool startAnimation = true;
         private void Awake()
         {
             Init();
@@ -25,7 +29,11 @@ namespace Enemy
 
         protected virtual void Init()
         {
-            ResetLife(); 
+            ResetLife();
+            if (startAnimation)
+            {
+                StartAnimation();
+            }
         }
 
         protected void ResetLife()
@@ -50,5 +58,14 @@ namespace Enemy
                 Kill();
             }
         }
+
+        #region Animations
+
+            private void StartAnimation()
+            {
+                transform.DOScale(0,durationAnimation).SetEase(easeAnimation).From();
+            }
+
+        #endregion
     }
 }
