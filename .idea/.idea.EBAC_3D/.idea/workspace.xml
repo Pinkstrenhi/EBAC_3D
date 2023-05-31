@@ -9,6 +9,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Inputs/Inputs.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animation/AnimationBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ebac/Core/StateMachine/FiniteStateMachineExample.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ebac/Core/StateMachine/StateMachineEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gun/GunShootAngle.cs" root0="FORCE_HIGHLIGHTING" />
@@ -103,7 +104,7 @@
       <workItem from="1685390356610" duration="2842000" />
       <workItem from="1685408750258" duration="2603000" />
       <workItem from="1685446618487" duration="926000" />
-      <workItem from="1685497935826" duration="1463000" />
+      <workItem from="1685497935826" duration="2843000" />
     </task>
     <servers />
   </component>
