@@ -51,7 +51,7 @@ MonoBehaviour:
   flashColor: {fileID: 8791774446965042502}
   particleSystem: {fileID: 6073311704934265438}
   particlesEmit: 20
-  startLife: 10
+  startLife: 5
   timeToDestroy: 3
   _currentLife: 0
   _animationBase: {fileID: 6073311704016344468}
