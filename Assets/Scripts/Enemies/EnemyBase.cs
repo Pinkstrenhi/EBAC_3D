@@ -72,6 +72,8 @@ namespace Enemy
             {
                 particleSystem.Emit(particlesEmit);
             }
+
+            transform.position -= transform.forward;
             _currentLife -= damage;
             if (_currentLife <= 0)
             {
@@ -82,6 +84,12 @@ namespace Enemy
         {
             Debug.Log("Damage");
             OnDamage(damage); 
+        }
+        public void Damage(float damage,Vector3 direction)
+        {
+            Debug.Log("Damage");
+            OnDamage(damage); 
+            transform.DOMove(transform.position - direction,0.1f);
         }
         #region Animations
 
