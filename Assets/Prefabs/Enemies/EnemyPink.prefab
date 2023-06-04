@@ -4915,6 +4915,7 @@ GameObject:
   - component: {fileID: 247488923422773122}
   - component: {fileID: 247488923422773120}
   - component: {fileID: 247488923422773121}
+  - component: {fileID: 6414919966052428683}
   m_Layer: 0
   m_Name: EnemyPink
   m_TagString: Untagged
@@ -4996,6 +4997,22 @@ MonoBehaviour:
     trigger: Attack
   - typeAnimation: 4
     trigger: Death
+--- !u!54 &6414919966052428683
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247488923422773125}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1001 &532906681644289786
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour,IDamageable
 {
     public Animator animator;
     public CharacterController characterController;
@@ -46,4 +46,20 @@ public class Player : MonoBehaviour
         characterController.Move(movementVertical * Time.deltaTime);
         animator.SetBool("Run",isWalking);
     }
+
+    [Header("Flash")] 
+        public List<FlashColor> flashColors;
+    #region Life
+
+        public void Damage(float damage)
+        {
+            flashColors.ForEach(i => i.Flash());
+        }
+
+        public void Damage(float damage, Vector3 direction)
+        {
+            
+        }
+
+    #endregion
 }

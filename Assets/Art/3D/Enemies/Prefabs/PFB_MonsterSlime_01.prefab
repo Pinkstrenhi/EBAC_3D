@@ -990,3 +990,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 6983442274928476050}
+  color: {r: 1, g: 0, b: 0, a: 1}
+  duration: 0.1

@@ -103,5 +103,14 @@ namespace Enemy
             }
 
         #endregion
+
+        private void OnCollisionEnter(Collision other)
+        {
+            Player player = other.transform.GetComponent<Player>();
+            if (player != null)
+            {
+                player.Damage(1);
+            }
+        }
     }
 }

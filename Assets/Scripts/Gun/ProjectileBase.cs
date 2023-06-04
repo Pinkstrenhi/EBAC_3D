@@ -17,12 +17,12 @@ public class ProjectileBase : MonoBehaviour
     {
         transform.Translate(Vector3.forward * (Time.deltaTime * speedProjectile));
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision other)
     {
-        var damageable = collision.transform.GetComponent<IDamageable>();
+        var damageable = other.transform.GetComponent<IDamageable>();
         if (damageable != null)
         {
-            Vector3 direction = collision.transform.position - transform.position;
+            Vector3 direction = other.transform.position - transform.position;
             direction = -direction.normalized;
             direction.y = 0;
             damageable.Damage(damageAmount,direction);

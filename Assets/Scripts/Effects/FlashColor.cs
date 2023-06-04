@@ -8,6 +8,7 @@ using NaughtyAttributes;
 public class FlashColor : MonoBehaviour
 {
     public MeshRenderer meshRenderer;
+    public SkinnedMeshRenderer skinnedMeshRenderer;
     [Header("Setup")]
         public Color color = Color.red;
         public float duration = 0.1f;
@@ -15,17 +16,34 @@ public class FlashColor : MonoBehaviour
     private string _colorProperty = "_EmissionColor";
     private Tween _currentTween;
 
-    private void Start()
+    private void OnValidate()
+    {
+        if (meshRenderer == null)
+        {
+            meshRenderer = GetComponent<MeshRenderer>();
+        }
+        if (skinnedMeshRenderer == null)
+        {
+            skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
+        }
+    }
+
+    /*private void Start()
     {
         _colorDefault = meshRenderer.material.GetColor(_colorProperty);
-    }
+    }*/
 
     [Button]
     public void Flash()
     {
-        if (!_currentTween.IsActive())
+        if (meshRenderer != null && !_currentTween.IsActive())
         {
             _currentTween = meshRenderer.material.DOColor(color, _colorProperty, duration).
+                SetLoops(2, LoopType.Yoyo);
+        }
+        if (skinnedMeshRenderer != null && !_currentTween.IsActive())
+        {
+            _currentTween = skinnedMeshRenderer.material.DOColor(color, _colorProperty, duration).
                 SetLoops(2, LoopType.Yoyo);
         }
     }
