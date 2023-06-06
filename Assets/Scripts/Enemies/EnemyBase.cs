@@ -15,22 +15,34 @@ namespace Enemy
         public int particlesEmit = 20;
         public float startLife = 10f;
         public float timeToDestroy = 3f;
+        public bool lookAtPlayer = false;
         [SerializeField]private float _currentLife;
         [SerializeField]private AnimationBase _animationBase;
         [Header("Animation")] 
             public float durationAnimation = 0.2f;
             public Ease easeAnimation = Ease.OutBack;
             public bool startAnimation = true;
+        private Player _player;
         private void Awake()
         {
             Init();
         }
 
-        private void Update()
+        private void Start()
+        {
+            _player = GameObject.FindObjectOfType<Player>();
+        }
+
+        public virtual void Update()
         {
             if (Input.GetKeyDown(KeyCode.T))
             {
                 OnDamage(5f);
+            }
+
+            if (lookAtPlayer)
+            {
+                transform.LookAt(_player.transform.position);
             }
         }
 

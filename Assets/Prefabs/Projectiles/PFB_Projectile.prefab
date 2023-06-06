@@ -46,9 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da52d1874c94ed4880995b14bcb1221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDestroy: 1
+  timeToDestroy: 2
   damageAmount: 5
   speedProjectile: 50
+  tagsToHit:
+  - Enemy
 --- !u!54 &4911705920084115847
 Rigidbody:
   m_ObjectHideFlags: 0

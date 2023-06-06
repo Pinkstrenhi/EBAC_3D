@@ -8,6 +8,7 @@ public class ProjectileBase : MonoBehaviour
     public float timeToDestroy = 1f;
     public int damageAmount = 1;
     public float speedProjectile = 50f;
+    public List<string> tagsToHit;
     private void Awake()
     {
         Destroy(gameObject,timeToDestroy);
@@ -15,17 +16,24 @@ public class ProjectileBase : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(Vector3.forward * (Time.deltaTime * speedProjectile));
+        transform.Translate(Vector3.forward * speedProjectile * Time.deltaTime);
     }
     private void OnCollisionEnter(Collision other)
     {
-        var damageable = other.transform.GetComponent<IDamageable>();
-        if (damageable != null)
+        foreach (var tagTarget in tagsToHit)
         {
-            Vector3 direction = other.transform.position - transform.position;
-            direction = -direction.normalized;
-            direction.y = 0;
-            damageable.Damage(damageAmount,direction);
+            if (other.transform.CompareTag(tagTarget))
+            {
+                var damageable = other.transform.GetComponent<IDamageable>();
+                if (damageable != null)
+                {
+                    Vector3 direction = other.transform.position - transform.position;
+                    direction = -direction.normalized;
+                    direction.y = 0;
+                    damageable.Damage(damageAmount, direction);
+                }
+            }
+            break;
         }
         Destroy(gameObject);
     }
