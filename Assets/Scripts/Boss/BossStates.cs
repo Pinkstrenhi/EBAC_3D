@@ -17,6 +17,20 @@ namespace Boss
 
     public class BossStateInit : BossStateBase
     {
-        
+        public override void OnStateEnter(params object[] objects)
+        {
+            base.OnStateEnter(objects);
+            _bossBase.StartAnimation();
+            Debug.Log("Boss: " + _bossBase);
+        }
+    }
+    public class BossStateWalk : BossStateBase
+    {
+        public override void OnStateEnter(params object[] objects)
+        {
+            base.OnStateEnter(objects);
+            _bossBase.GoToRandomPoint();
+            Debug.Log("Boss: " + _bossBase);
+        }
     }
 }
