@@ -10,6 +10,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Inputs/Inputs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animation/AnimationBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Boss/BossBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Boss/BossStates.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ebac/Core/StateMachine/FiniteStateMachineExample.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ebac/Core/StateMachine/StateMachineEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyWalk.cs" root0="FORCE_HIGHLIGHTING" />
@@ -110,7 +112,7 @@
       <workItem from="1685583683891" duration="2412000" />
       <workItem from="1685847155852" duration="3827000" />
       <workItem from="1685922593072" duration="740000" />
-      <workItem from="1686052874471" duration="2695000" />
+      <workItem from="1686052874471" duration="4791000" />
     </task>
     <servers />
   </component>

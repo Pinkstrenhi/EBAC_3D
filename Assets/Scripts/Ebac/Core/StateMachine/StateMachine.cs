@@ -37,7 +37,7 @@ namespace Ebac.StateMachine
       {
          DictionaryState.Add(typeEnum, stateBase);
       }
-      public void SwitchStates(T state)
+      public void SwitchStates(T state, params object[] objects)
       {
          if (_currentState != null)
          {
@@ -48,7 +48,7 @@ namespace Ebac.StateMachine
 
          if (_currentState != null)
          {
-            _currentState.OnStateEnter();
+            _currentState.OnStateEnter(objects);
          }
       }
    }
