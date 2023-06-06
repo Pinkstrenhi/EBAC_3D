@@ -23,6 +23,9 @@ namespace Boss
         [Header("Animation")] 
             public float durationAnimation = 0.5f;
             public Ease easeAnimation = Ease.OutBack;
+        [Header("Attack")] 
+            public int amountAttack = 5;
+            public float timeBetweenAttacks = 0.5f;
         private StateMachine<BossAction> _stateMachine;
 
         private void Awake()
@@ -36,17 +39,36 @@ namespace Boss
             _stateMachine.Init();
             _stateMachine.RegisterStates(BossAction.Init, new BossStateInit());
             _stateMachine.RegisterStates(BossAction.Walk, new BossStateWalk());
+            _stateMachine.RegisterStates(BossAction.Attack, new BossStateAttack());
         }
 
-        #region Movement
+        #region Attack
 
-            [Button]
-            public void GoToRandomPoint()
+            public void StartAttack(Action endCallback = null)
             {
-                StartCoroutine(CoroutineGoToPoint(waypoints[Random.Range(0,waypoints.Count)]));
+                StartCoroutine(CoroutineStartAttack(endCallback));
             }
 
-            IEnumerator CoroutineGoToPoint(Transform point)
+            IEnumerator CoroutineStartAttack(Action endCallback)
+            {
+                int attacks = 0;
+                while (attacks < amountAttack)
+                {
+                    attacks++;
+                    transform.DOScale(1.1f,0.1f).SetLoops(2,LoopType.Yoyo);
+                    yield return new WaitForSeconds(timeBetweenAttacks);
+                }
+                endCallback?.Invoke();
+            }
+
+        #endregion
+        #region Movement
+            public void GoToRandomPoint(Action onArrive = null)
+            {
+                StartCoroutine(CoroutineGoToPoint(waypoints[Random.Range(0,waypoints.Count)],onArrive));
+            }
+
+            IEnumerator CoroutineGoToPoint(Transform point, Action onArrive = null)
             {
                 while (Vector3.Distance(transform.position,point.position) > 1f)
                 {
@@ -54,6 +76,7 @@ namespace Boss
                         point.transform.position, Time.deltaTime * speed);
                     yield return new WaitForEndOfFrame();
                 }
+                onArrive?.Invoke();
             }
 
         #endregion
@@ -75,6 +98,11 @@ namespace Boss
             private void SwitchWalk()
             {
                 SwitchState(BossAction.Walk);
+            }
+            [Button]
+            private void SwitchAttack()
+            {
+                SwitchState(BossAction.Attack);
             }
 
         #endregion
