@@ -14,12 +14,14 @@ namespace Boss
         Init,
         Idle,
         Walk, 
-        Attack
+        Attack,
+        Death
     }
     public class BossBase : MonoBehaviour
     {
         public float speed = 5f;
         public List<Transform> waypoints;
+        public HealthBase healthBase;
         [Header("Animation")] 
             public float durationAnimation = 0.5f;
             public Ease easeAnimation = Ease.OutBack;
@@ -31,6 +33,7 @@ namespace Boss
         private void Awake()
         {
             Init();
+            healthBase.onKill += OnBossKill;
         }
 
         private void Init()
@@ -40,8 +43,13 @@ namespace Boss
             _stateMachine.RegisterStates(BossAction.Init, new BossStateInit());
             _stateMachine.RegisterStates(BossAction.Walk, new BossStateWalk());
             _stateMachine.RegisterStates(BossAction.Attack, new BossStateAttack());
+            _stateMachine.RegisterStates(BossAction.Death, new BossStateDeath());
         }
 
+        private void OnBossKill(HealthBase healthBase)
+        {
+            SwitchState(BossAction.Death);
+        }
         #region Attack
 
             public void StartAttack(Action endCallback = null)
@@ -106,7 +114,6 @@ namespace Boss
             }
 
         #endregion
-
         #region State Machine
 
             public void SwitchState(BossAction state)
