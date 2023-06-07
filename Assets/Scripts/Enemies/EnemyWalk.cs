@@ -19,15 +19,16 @@ namespace Enemy
             base.Update();
             if (Vector3.Distance(transform.position,waypoints[_index].transform.position) < minDistance)
             {
+                Debug.Log("Walking");
                 _index++;
                 if (_index >= waypoints.Length)
                 {
                     _index = 0;
                 }
-                transform.position = Vector3.MoveTowards(transform.position,
-                    waypoints[_index].transform.position,Time.deltaTime * speed);
-                transform.LookAt(waypoints[_index].transform.position);
             }
+            transform.position = Vector3.MoveTowards(transform.position,
+                waypoints[_index].transform.position,Time.deltaTime * speed);
+            transform.LookAt(waypoints[_index].transform.position);
         }
     }
 }
