@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public class HealthBase : MonoBehaviour
+public class HealthBase : MonoBehaviour, IDamageable
 {
     public float startLife = 10f;
     public float timeToDestroy = 3f;
@@ -47,5 +47,10 @@ public class HealthBase : MonoBehaviour
             Kill();
         }
         onDamage?.Invoke(this);
+    }
+
+    public void Damage(float damage, Vector3 direction)
+    {
+        Damage(damage);
     }
 }

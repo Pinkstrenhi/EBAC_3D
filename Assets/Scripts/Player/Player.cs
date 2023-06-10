@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour,IDamageable
+public class Player : MonoBehaviour
 {
     public Animator animator;
     public CharacterController characterController;
+    public HealthBase healthBase;
     public float speedMovement = 25f;
     public float speedRotation = 300f;
     public float gravity = 9.8f;
@@ -15,6 +16,20 @@ public class Player : MonoBehaviour,IDamageable
     [Header("Run Setup")] 
         public KeyCode keyRun = KeyCode.LeftShift;
         public float speedRun = 1.5f;
+
+    private void Awake()
+    {
+        OnValidate();
+        healthBase.onDamage += Damage;
+    }
+    private void OnValidate()
+    {
+        if (healthBase == null)
+        {
+            healthBase = GetComponent<HealthBase>();
+        }
+    }
+
     private void Update()
     {
         transform.Rotate(0,Input.GetAxis("Horizontal") * speedRotation * Time.deltaTime,0);
@@ -51,15 +66,15 @@ public class Player : MonoBehaviour,IDamageable
         public List<FlashColor> flashColors;
     #region Life
 
-        public void Damage(float damage)
+        public void Damage(HealthBase healthBase)
         {
             flashColors.ForEach(i => i.Flash());
         }
 
-        public void Damage(float damage, Vector3 direction)
+       /* public void Damage(float damage, Vector3 direction)
         {
             Damage(damage);
-        }
+        }*/
 
     #endregion
 }

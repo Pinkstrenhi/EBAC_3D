@@ -33,7 +33,15 @@ namespace Boss
         private void Awake()
         {
             Init();
+            OnValidate();
             healthBase.onKill += OnBossKill;
+        }
+        private void OnValidate()
+        {
+            if (healthBase == null)
+            {
+                healthBase = GetComponent<HealthBase>();
+            }
         }
 
         private void Init()
