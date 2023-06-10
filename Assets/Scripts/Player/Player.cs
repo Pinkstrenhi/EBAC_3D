@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public float gravity = 9.8f;
     private float _speedVertical = 0f;
     public float speedJump = 15f;
+    public float timeToRevive = 3f;
+    //public float timeToInvokeColliders = 0.1f;
     [Header("Run Setup")] 
         public KeyCode keyRun = KeyCode.LeftShift;
         public float speedRun = 1.5f;
@@ -76,6 +78,20 @@ public class Player : MonoBehaviour
             transform.position = CheckpointManager.Instance.GetPositionLastCheckpoint();
         }
     }
+
+    private void Revive()
+    {
+        healthBase.ResetLife();
+        animator.SetTrigger("Revive");
+        Respawn();
+        SetColliders(true);
+        _alive = true;
+    }
+
+    private void SetColliders(bool colliderState)
+    {
+        colliders.ForEach(i => i.enabled = colliderState);
+    }
     
     #region Life
 
@@ -94,7 +110,8 @@ public class Player : MonoBehaviour
            {
                _alive = false;
                animator.SetTrigger("Death");
-               colliders.ForEach(i => i.enabled = false);
+               SetColliders(false);
+               Invoke(nameof(Revive),timeToRevive);
            }
        }
 

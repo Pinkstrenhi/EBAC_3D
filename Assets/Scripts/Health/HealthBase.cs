@@ -20,11 +20,11 @@ public class HealthBase : MonoBehaviour, IDamageable
         Init();
     }
 
-    public void Init()
+    private void Init()
     {
         ResetLife();
     }
-    protected void ResetLife()
+    public void ResetLife()
     {
         _currentLife = startLife;
     }
