@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     public List<Collider> colliders;
     public Animator animator;
     public CharacterController characterController;
-    public HealthBase healthBase;
     public float speedMovement = 25f;
     public float speedRotation = 300f;
     public float gravity = 9.8f;
@@ -17,6 +16,10 @@ public class Player : MonoBehaviour
     [Header("Run Setup")] 
         public KeyCode keyRun = KeyCode.LeftShift;
         public float speedRun = 1.5f;
+    [Header("Flash")] 
+        public List<FlashColor> flashColors;
+    [Header("Life")]
+        public HealthBase healthBase;
     private bool _alive = true;
 
     private void Awake()
@@ -65,8 +68,7 @@ public class Player : MonoBehaviour
         animator.SetBool("Run",isWalking);
     }
 
-    [Header("Flash")] 
-        public List<FlashColor> flashColors;
+    
     #region Life
 
         public void Damage(HealthBase healthBase)
