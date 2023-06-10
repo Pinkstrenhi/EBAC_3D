@@ -34,7 +34,10 @@ namespace Boss
         {
             Init();
             OnValidate();
-            healthBase.onKill += OnBossKill;
+            if (healthBase != null)
+            {
+                healthBase.onKill += OnBossKill;
+            }
         }
         private void OnValidate()
         {
