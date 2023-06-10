@@ -19,6 +19,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gun/GunShootAngle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gun/GunShootLimit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interfaces/IDamageable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/CheckpointManager/CheckpointManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/GameManager/Editor/GameManagerEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/GameManager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/GameManager/States/GMStates_Gameplay.cs" root0="FORCE_HIGHLIGHTING" />
@@ -116,7 +117,7 @@
       <workItem from="1686052874471" duration="4996000" />
       <workItem from="1686081544983" duration="3543000" />
       <workItem from="1686163119301" duration="4573000" />
-      <workItem from="1686361856682" duration="5911000" />
+      <workItem from="1686361856682" duration="7020000" />
     </task>
     <servers />
   </component>

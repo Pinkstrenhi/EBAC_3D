@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -67,7 +68,14 @@ public class Player : MonoBehaviour
         characterController.Move(movementVertical * Time.deltaTime);
         animator.SetBool("Run",isWalking);
     }
-
+    [Button]
+    public void Respawn()
+    {
+        if (CheckpointManager.Instance.HasCheckpoint())
+        {
+            transform.position = CheckpointManager.Instance.GetPositionLastCheckpoint();
+        }
+    }
     
     #region Life
 
