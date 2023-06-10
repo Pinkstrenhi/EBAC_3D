@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public List<Collider> colliders;
     public Animator animator;
     public CharacterController characterController;
     public HealthBase healthBase;
@@ -16,11 +17,13 @@ public class Player : MonoBehaviour
     [Header("Run Setup")] 
         public KeyCode keyRun = KeyCode.LeftShift;
         public float speedRun = 1.5f;
+    private bool _alive = true;
 
     private void Awake()
     {
         OnValidate();
         healthBase.onDamage += Damage;
+        healthBase.onKill += OnKill;
     }
     private void OnValidate()
     {
@@ -75,6 +78,15 @@ public class Player : MonoBehaviour
         {
             Damage(damage);
         }*/
+       private void OnKill(HealthBase healthBase)
+       {
+           if (_alive)
+           {
+               _alive = false;
+               animator.SetTrigger("Death");
+               colliders.ForEach(i => i.enabled = false);
+           }
+       }
 
     #endregion
 }
