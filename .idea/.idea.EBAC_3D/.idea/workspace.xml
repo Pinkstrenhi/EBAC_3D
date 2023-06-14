@@ -16,6 +16,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Checkpoints/CheckpointBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ebac/Core/StateMachine/FiniteStateMachineExample.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ebac/Core/StateMachine/StateMachineEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Effects/CameraShake.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyWalk.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gun/GunShootAngle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gun/GunShootLimit.cs" root0="FORCE_HIGHLIGHTING" />
@@ -121,7 +122,7 @@
       <workItem from="1686361856682" duration="8287000" />
       <workItem from="1686621732904" duration="1260000" />
       <workItem from="1686673424053" duration="1614000" />
-      <workItem from="1686704964183" duration="1822000" />
+      <workItem from="1686704964183" duration="3390000" />
     </task>
     <servers />
   </component>
