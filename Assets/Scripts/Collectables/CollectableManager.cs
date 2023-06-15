@@ -3,35 +3,73 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Core.Singleton;
+using NaughtyAttributes;
 
-public class CollectableManager : Singleton<CollectableManager>
+namespace Collectables
 {
-    public SO_Int coins;
-    public SO_Int planets;
-    private void Start()
+    public enum CollectablesType
     {
-        Reset();
+        Coin,
+        LifePack
     }
 
-    private void Reset()
+    public class CollectableManager : Singleton<CollectableManager>
     {
-        coins.value = 0;
-        planets.value = 0;
-        UpdateUI();
-    }
-    public void AddCoins(int amount = 1)
-    {
-        coins.value += amount;
-        UpdateUI();
-    }
-    public void AddPlanets(int amount = 1)
-    {
-        planets.value += amount;
-        UpdateUI();
+        public List<CollectablesSetup> collectablesSetups;
+        private void Start()
+        {
+            Reset();
+        }
+
+        private void Reset()
+        {
+            foreach (var i in collectablesSetups)
+            {
+                i.soInt.value = 0;
+            }
+        }
+
+        public void AddByType(CollectablesType collectablesType,int amount = 1)
+        {
+            if (amount < 0)
+            {
+                return;
+            }
+
+            collectablesSetups.Find(i => i.collectablesType == 
+                                         collectablesType).soInt.value += amount;
+        }
+
+        public void RemoveByType(CollectablesType collectablesType,int amount = 1)
+        {
+            if (amount > 0)
+            {
+                return;
+            }
+            var  collectable = collectablesSetups.Find(i => i.collectablesType == 
+                                                            collectablesType);
+            collectable.soInt.value += amount;
+            if (collectable.soInt.value < 0)
+            {
+                collectable.soInt.value = 0;
+            }
+        }
+        [Button]
+        private void AddCoin()
+        {
+            AddByType(CollectablesType.Coin);
+        }
+        [Button]
+        private void AddLifePack()
+        {
+            AddByType(CollectablesType.LifePack);
+        }
     }
 
-    private void UpdateUI()
+    [Serializable]
+    public class CollectablesSetup
     {
-        /*UiGameManager.UpdateTextCoins("x " + coins.value.ToString());*/
+        public CollectablesType collectablesType;
+        public SO_Int soInt;
     }
 }

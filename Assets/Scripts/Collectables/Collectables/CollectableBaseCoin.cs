@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Collectables;
 
 public class CollectableBaseCoin : CollectableBase
 {
@@ -8,7 +9,7 @@ public class CollectableBaseCoin : CollectableBase
     protected override void OnCollect()
     {
         base.OnCollect();
-        CollectableManager.Instance.AddCoins();
+        CollectableManager.Instance.AddByType(CollectablesType.Coin);
         collider.enabled = false;
     }
 }
