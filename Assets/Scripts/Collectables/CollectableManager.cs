@@ -28,7 +28,6 @@ namespace Collectables
                 i.soInt.value = 0;
             }
         }
-
         public void AddByType(CollectablesType collectablesType,int amount = 1)
         {
             if (amount < 0)
@@ -42,17 +41,21 @@ namespace Collectables
 
         public void RemoveByType(CollectablesType collectablesType,int amount = 1)
         {
-            if (amount > 0)
+           /* if (amount > 0)
             {
                 return;
-            }
+            }*/
             var  collectable = collectablesSetups.Find(i => i.collectablesType == 
                                                             collectablesType);
-            collectable.soInt.value += amount;
+            collectable.soInt.value -= amount;
             if (collectable.soInt.value < 0)
             {
                 collectable.soInt.value = 0;
             }
+        }
+        public CollectablesSetup GetCollectableByType(CollectablesType collectablesType)
+        {
+            return collectablesSetups.Find(i => i.collectablesType == collectablesType);
         }
         [Button]
         private void AddCoin()

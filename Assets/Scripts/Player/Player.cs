@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
+using Core.Singleton;
 
-public class Player : MonoBehaviour
+public class Player : Singleton<Player>
 {
     public List<Collider> colliders;
     public Animator animator;
@@ -25,12 +26,21 @@ public class Player : MonoBehaviour
         public HealthBase healthBase;
     private bool _alive = true;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         OnValidate();
         healthBase.onDamage += Damage;
         healthBase.onKill += OnKill;
     }
+
+    /*private void Start()
+    {
+        OnValidate();
+        healthBase.onDamage += Damage;
+        healthBase.onKill += OnKill;
+    }*/
+
     private void OnValidate()
     {
         if (healthBase == null)

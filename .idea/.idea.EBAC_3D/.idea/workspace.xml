@@ -9,6 +9,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Inputs/Inputs.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Actions/ActionLifePack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animation/AnimationBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Boss/BossBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Boss/BossStartCheck.cs" root0="FORCE_HIGHLIGHTING" />
@@ -128,7 +129,8 @@
       <workItem from="1686704964183" duration="3795000" />
       <workItem from="1686792267083" duration="906000" />
       <workItem from="1686793861972" duration="2283000" />
-      <workItem from="1686830023144" duration="2771000" />
+      <workItem from="1686830023144" duration="5608000" />
+      <workItem from="1686844579271" duration="3660000" />
     </task>
     <servers />
   </component>

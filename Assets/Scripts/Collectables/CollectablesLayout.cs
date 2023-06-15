@@ -4,29 +4,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
 namespace Collectables
 {
     public class CollectablesLayout : MonoBehaviour
     {
-        private CollectablesSetup _collectablesSetup;
+        private CollectablesSetup _currentSetup;
         public Image uiIcon;
         public TextMeshProUGUI uiValue;
 
-        private void Update()
+        public void Load(CollectablesSetup collectables)
         {
-            uiValue.text = _collectablesSetup.soInt.value.ToString();
-        }
-
-        public void Load(CollectablesSetup collectablesSetup)
-        {
-            collectablesSetup = _collectablesSetup;
+            _currentSetup = collectables;
             UpdateUI();
         }
 
         private void UpdateUI()
         {
-            uiIcon.sprite = _collectablesSetup.icon;
+            uiIcon.sprite = _currentSetup.icon;
+        }
+        private void Update()
+        {
+            uiValue.text = _currentSetup.soInt.value.ToString();
         }
     }
 }
