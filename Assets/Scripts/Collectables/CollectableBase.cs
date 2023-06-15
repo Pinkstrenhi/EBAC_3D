@@ -3,54 +3,67 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectableBase : MonoBehaviour
+namespace Collectables
 {
-    public string compareTag = "Player";
-    public ParticleSystem particleSystem;
-    public float timeToHide = 3f;
-    public GameObject graphicItem;
+    public class CollectableBase : MonoBehaviour
+    {
+        public CollectablesType collectablesType;
+        public string compareTag = "Player";
+        public ParticleSystem particleSystem;
+        public float timeToHide = 3f;
+        public GameObject graphicItem;
+        public Collider collider;
 
-    [Header("Sounds")] 
-        public AudioSource audioSource;
-    private void Awake()
-    {
-        /*if (particleSystem != null)
-        {
-            particleSystem.transform.SetParent(null);
-        }  */
-    }
+        [Header("Sounds")] public AudioSource audioSource;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.transform.CompareTag(compareTag))
+        private void Awake()
         {
-            Collect();
-        }    }
-
-    protected virtual void Collect()
-    {
-        if (graphicItem != null)
-        {
-            graphicItem.SetActive(false);
-        }
-        Invoke(nameof(HideObject),timeToHide); 
-        OnCollect();
-    }
-
-    private void HideObject()
-    {
-        gameObject.SetActive(false);
-    }
-    protected virtual void OnCollect()
-    {
-        if (particleSystem != null)
-        {
-            particleSystem.Play();
+            /*if (particleSystem != null)
+            {
+                particleSystem.transform.SetParent(null);
+            }  */
         }
 
-        if (audioSource != null)
+        private void OnTriggerEnter(Collider other)
         {
-            audioSource.Play();
+            if (other.transform.CompareTag(compareTag))
+            {
+                Collect();
+            }
+        }
+
+        protected virtual void Collect()
+        {
+            if (collider != null)
+            {
+                collider.enabled = false;
+            }
+            if (graphicItem != null)
+            {
+                graphicItem.SetActive(false);
+            }
+
+            Invoke(nameof(HideObject), timeToHide);
+            OnCollect();
+        }
+
+        private void HideObject()
+        {
+            gameObject.SetActive(false);
+        }
+
+        protected virtual void OnCollect()
+        {
+            if (particleSystem != null)
+            {
+                particleSystem.Play();
+            }
+
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
+            CollectableManager.Instance.AddByType(collectablesType);
         }
     }
 }
