@@ -71,5 +71,6 @@ namespace Collectables
     {
         public CollectablesType collectablesType;
         public SO_Int soInt;
+        public Sprite icon;
     }
 }

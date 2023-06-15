@@ -47,6 +47,7 @@ MonoBehaviour:
   collectablesSetups:
   - collectablesType: 0
     soInt: {fileID: 11400000, guid: 58e3c09183b3c4344912bbd1949e29f2, type: 2}
+    icon: {fileID: 21300000, guid: de085835d504f71449418b1ac8036134, type: 3}
   - collectablesType: 1
     soInt: {fileID: 11400000, guid: 7a7a68e714fc288478a40569c9bb3b31, type: 2}
-  coins: {fileID: 0}
+    icon: {fileID: 21300000, guid: 137c6a42999c07545bfddb56869f0357, type: 3}
