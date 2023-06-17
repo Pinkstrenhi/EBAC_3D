@@ -15,6 +15,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Boss/BossStartCheck.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Boss/BossStates.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Checkpoints/CheckpointBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Chest/ChestBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Chest/ChestItemBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Chest/ChestItemCoin.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectables/CollectableBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectables/CollectablesLayout.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ebac/Core/StateMachine/FiniteStateMachineExample.cs" root0="FORCE_HIGHLIGHTING" />
@@ -131,6 +134,8 @@
       <workItem from="1686793861972" duration="2283000" />
       <workItem from="1686830023144" duration="5608000" />
       <workItem from="1686844579271" duration="3954000" />
+      <workItem from="1686857832871" duration="456000" />
+      <workItem from="1687028021341" duration="7233000" />
     </task>
     <servers />
   </component>
