@@ -38,6 +38,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Abilities/PlayerAbilityShoot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Gun/UIUpdaterGun.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/Magnetic/Magnetic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/Magnetic/MagneticTriggerPlayer.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -136,7 +138,7 @@
       <workItem from="1686830023144" duration="5608000" />
       <workItem from="1686844579271" duration="3954000" />
       <workItem from="1686857832871" duration="456000" />
-      <workItem from="1687028021341" duration="10476000" />
+      <workItem from="1687028021341" duration="11645000" />
     </task>
     <servers />
   </component>
