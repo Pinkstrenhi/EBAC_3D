@@ -20,6 +20,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Chest/ChestItemCoin.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectables/CollectableBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectables/CollectablesLayout.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectables/Destructables/DestructableBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ebac/Core/StateMachine/FiniteStateMachineExample.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ebac/Core/StateMachine/StateMachineEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Effects/CameraShake.cs" root0="FORCE_HIGHLIGHTING" />
@@ -135,7 +136,7 @@
       <workItem from="1686830023144" duration="5608000" />
       <workItem from="1686844579271" duration="3954000" />
       <workItem from="1686857832871" duration="456000" />
-      <workItem from="1687028021341" duration="7233000" />
+      <workItem from="1687028021341" duration="9179000" />
     </task>
     <servers />
   </component>
