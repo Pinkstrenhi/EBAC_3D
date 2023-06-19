@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
 using Core.Singleton;
+using Cloth;
 
 public class Player : Singleton<Player>
 {
@@ -24,6 +25,8 @@ public class Player : Singleton<Player>
         public List<FlashColor> flashColors;
     [Header("Life")]
         public HealthBase healthBase;
+    [Space] 
+        public ClothChanger clothChanger;
     private bool _alive = true;
 
     protected override void Awake()
@@ -142,6 +145,21 @@ public class Player : Singleton<Player>
             yield return new WaitForSeconds(duration);
             speedRun = defaultSpeed;
         }
+
+    #endregion
+
+    #region Cloth
+
+    public void ChangeTexture(ClothSetup clothSetup, float duration)
+    {
+        StartCoroutine(CoroutineChangeCloth(clothSetup,duration));
+    }
+    private IEnumerator CoroutineChangeCloth(ClothSetup clothSetup, float duration)
+    {
+        
+        yield return new WaitForSeconds(duration);
+        
+    }
 
     #endregion
 }
