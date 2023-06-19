@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Collectables
 {
+    [RequireComponent(typeof(Collider))]
     public class CollectableBase : MonoBehaviour
     {
         public CollectablesType collectablesType;
@@ -12,7 +13,7 @@ namespace Collectables
         public ParticleSystem particleSystem;
         public float timeToHide = 3f;
         public GameObject graphicItem;
-        public Collider collider;
+        public Collider[] colliders;
 
         [Header("Sounds")] public AudioSource audioSource;
 
@@ -22,6 +23,8 @@ namespace Collectables
             {
                 particleSystem.transform.SetParent(null);
             }  */
+            colliders = GetComponents<Collider>();
+            
         }
 
         private void OnTriggerEnter(Collider other)
@@ -34,9 +37,12 @@ namespace Collectables
 
         protected virtual void Collect()
         {
-            if (collider != null)
+            if (colliders != null)
             {
-                collider.enabled = false;
+                foreach (var i in colliders)
+                {
+                    i.enabled = false;
+                }
             }
             if (graphicItem != null)
             {
