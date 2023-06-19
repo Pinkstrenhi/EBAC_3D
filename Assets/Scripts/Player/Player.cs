@@ -127,4 +127,21 @@ public class Player : Singleton<Player>
        }
 
     #endregion
+
+    #region Speed
+
+        public void ChangeSpeed(float speed, float duration)
+        {
+            StartCoroutine(CoroutineChangeSpeed(speed,duration));
+        }
+
+        private IEnumerator CoroutineChangeSpeed(float localSpeed, float duration)
+        {
+            var defaultSpeed = speedRun;
+            speedRun = localSpeed;
+            yield return new WaitForSeconds(duration);
+            speedRun = defaultSpeed;
+        }
+
+    #endregion
 }
