@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 using UnityEngine.Serialization;
+using Cloth;
 
 public class HealthBase : MonoBehaviour, IDamageable
 {
     public float startLife = 10f;
     public float timeToDestroy = 3f;
     public bool destroyOnKill = false;
+    public float damageMultiply = 1f;
     public Action<HealthBase> onDamage;
     public Action<HealthBase> onKill;
     public List<UIUpdater> uiUpdaters;
@@ -44,7 +46,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     }
     public void Damage(float damage)
     { 
-        _currentLife -= damage;
+        _currentLife -= damage * damageMultiply;
         if (_currentLife <= 0)
         {
             Kill();
@@ -64,5 +66,15 @@ public class HealthBase : MonoBehaviour, IDamageable
         {
             uiUpdaters.ForEach(i => i.UpdateValues((float) _currentLife/ startLife));
         }
+    }
+    public void ChangeDamageMultiply(float damage, float duration)
+    {
+        StartCoroutine(CoroutineChangeDamageMultiply(damageMultiply,duration));
+    }
+    private IEnumerator CoroutineChangeDamageMultiply(float multiply, float duration)
+    {
+        damageMultiply = multiply;
+        yield return new WaitForSeconds(duration);
+        damageMultiply = 1f;
     }
 }
