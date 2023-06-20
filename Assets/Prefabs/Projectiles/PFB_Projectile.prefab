@@ -192,6 +192,9 @@ MonoBehaviour:
   speedProjectile: 50
   tagsToHit:
   - Enemy
+  tagsToIgnore:
+  - Player
+  - Magnetic
 --- !u!54 &4911705920084115847
 Rigidbody:
   m_ObjectHideFlags: 0

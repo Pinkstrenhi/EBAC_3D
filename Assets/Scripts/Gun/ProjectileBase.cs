@@ -9,6 +9,7 @@ public class ProjectileBase : MonoBehaviour
     public int damageAmount = 1;
     public float speedProjectile = 50f;
     public List<string> tagsToHit;
+    public List<string> tagsToIgnore;
     private void Awake()
     {
         Destroy(gameObject,timeToDestroy);
@@ -20,6 +21,10 @@ public class ProjectileBase : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
+        if (tagsToIgnore.Contains(other.transform.tag))
+        {
+            return;
+        }
         foreach (var tagTarget in tagsToHit)
         {
             if (other.transform.CompareTag(tagTarget))
