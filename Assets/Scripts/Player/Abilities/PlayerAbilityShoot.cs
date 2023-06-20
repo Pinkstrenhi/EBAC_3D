@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening.Core.Easing;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,6 +13,7 @@ public class PlayerAbilityShoot : PlayerAbilityBase
    private GunBase _currentGunBase;
    public GunShootLimit prefabLimit;
    public GunShootAngle prefabAngle;
+   public FlashColor flashColor;
    protected override void Init()
    {
       base.Init();
@@ -33,6 +35,7 @@ public class PlayerAbilityShoot : PlayerAbilityBase
    private void StartShoot()
    {
       _currentGunBase.StartShoot();
+      flashColor?.Flash();
       Debug.Log("StartShoot");
    }
    private void CancelShoot()

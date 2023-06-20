@@ -5782,7 +5782,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115557566}
-  m_LocalRotation: {x: 0.14521314, y: -8.619646e-15, z: 9.284736e-16, w: 0.98940045}
+  m_LocalRotation: {x: 0.14521314, y: -1.6271901e-15, z: 2.6894993e-16, w: 0.98940045}
   m_LocalPosition: {x: -13.116333, y: 13.513413, z: -35.07698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6680,6 +6680,7 @@ MonoBehaviour:
   skinnedMeshRenderer: {fileID: 268058122}
   color: {r: 1, g: 0, b: 0, a: 1}
   duration: 0.1
+  colorProperty: _EmissionColor
 --- !u!1001 &269198646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12043,6 +12044,7 @@ MonoBehaviour:
   gunPosition: {fileID: 946020272}
   prefabLimit: {fileID: 2103326898783636340, guid: 1c35586d5805ba4449a3e13fbf9a62cb, type: 3}
   prefabAngle: {fileID: 237958277364576257, guid: 03a70852fe93f0948aa696ad3761d9f3, type: 3}
+  flashColor: {fileID: 1951699714}
 --- !u!136 &981896220
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15136,6 +15138,7 @@ MonoBehaviour:
   skinnedMeshRenderer: {fileID: 1377416904}
   color: {r: 1, g: 0, b: 0, a: 1}
   duration: 0.1
+  colorProperty: _EmissionColor
 --- !u!114 &1383527953 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5432028883550827884, guid: f65ac302f8c526c45b528a1cf6f6385e, type: 3}
@@ -16720,7 +16723,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581650108}
-  m_LocalRotation: {x: 0.09131149, y: -0.7169452, z: 0.21143642, w: 0.65798676}
+  m_LocalRotation: {x: 0.09131151, y: -0.7169451, z: 0.21143642, w: 0.65798676}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -17872,6 +17875,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2467333148308741875, guid: 89e20167823a30d459856414377997d1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 1921982996}
     - target: {fileID: 5156129202013452133, guid: 89e20167823a30d459856414377997d1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -19512,6 +19519,106 @@ MonoBehaviour:
   m_AmplitudeGain: 0
   m_FrequencyGain: 0
   mNoiseOffsets: {x: 868.69934, y: 226.71594, z: 682.07837}
+--- !u!21 &1921982996
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MAT_FlashColorShoot (Instance)
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ValidKeywords:
+  - _ALPHABLEND_ON
+  - _EMISSION
+  m_InvalidKeywords: []
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BlendOp: 0
+    - _BumpScale: 1
+    - _CameraFadingEnabled: 0
+    - _CameraFarFadeDistance: 2
+    - _CameraNearFadeDistance: 1
+    - _ColorMode: 0
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DistortionBlend: 0.5
+    - _DistortionEnabled: 0
+    - _DistortionStrength: 1
+    - _DistortionStrengthScaled: 0
+    - _DstBlend: 10
+    - _EmissionEnabled: 0
+    - _FlipbookMode: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 1
+    - _GlossyReflections: 1
+    - _LightingEnabled: 0
+    - _Metallic: 0
+    - _Mode: 2
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SoftParticlesEnabled: 0
+    - _SoftParticlesFarFadeDistance: 1
+    - _SoftParticlesNearFadeDistance: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 5
+    - _UVSec: 0
+    - _ZWrite: 0
+    m_Colors:
+    - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
+    - _Color: {r: 1, g: 0.5362599, b: 0, a: 0.27450982}
+    - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissionColor: {r: 0.9433962, g: 0.25669575, b: 0.021359887, a: 1}
+    - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &1927815687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19847,6 +19954,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soInt: {fileID: 0}
   keyCode: 122
+--- !u!114 &1951699714 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7355016361517991134, guid: 89e20167823a30d459856414377997d1, type: 3}
+  m_PrefabInstance: {fileID: 1755247079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c39af686bec571429779b8618dd8811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1963633341
 PrefabInstance:
   m_ObjectHideFlags: 0

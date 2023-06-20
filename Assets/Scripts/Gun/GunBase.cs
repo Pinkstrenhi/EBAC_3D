@@ -11,15 +11,7 @@ public class GunBase : MonoBehaviour
     private Coroutine _currentCoroutine;
     public float speedProjectile = 50f;
 
-    protected virtual IEnumerator CoroutineShoot()
-    {
-        while (true)
-        {
-           Shoot();
-           yield return new WaitForSeconds(timeBetweenShoot);
-        }
-    }
-
+    
     protected virtual void Shoot()
     {
         var projectile = Instantiate(projectileBase);
@@ -42,4 +34,13 @@ public class GunBase : MonoBehaviour
             StopCoroutine(nameof(CoroutineShoot));
         }
     }
+    protected virtual IEnumerator CoroutineShoot()
+    {
+        while (true)
+        {
+            Shoot();
+            yield return new WaitForSeconds(timeBetweenShoot);
+        }
+    }
+
 }
