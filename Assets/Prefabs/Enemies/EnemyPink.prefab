@@ -4957,6 +4957,7 @@ MonoBehaviour:
   particlesEmit: 20
   startLife: 20
   timeToDestroy: 3
+  lookAtPlayer: 0
   _currentLife: 0
   _animationBase: {fileID: 247488923422773121}
   durationAnimation: 0.2
