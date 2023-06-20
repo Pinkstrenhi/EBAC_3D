@@ -38,9 +38,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Abilities/PlayerAbilityShoot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Cloths/ClothManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Cloths/Items/ClothCollectableColor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Cloths/Items/ClothCollectableSpeed.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Cloths/Items/ClothCollectableStrength.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Gun/UIUpdaterGun.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/Magnetic/Magnetic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/Magnetic/MagneticTriggerPlayer.cs" root0="FORCE_HIGHLIGHTING" />
@@ -145,7 +142,7 @@
       <workItem from="1687028021341" duration="12910000" />
       <workItem from="1687132455788" duration="734000" />
       <workItem from="1687200608808" duration="4551000" />
-      <workItem from="1687223865145" duration="2907000" />
+      <workItem from="1687223865145" duration="3144000" />
     </task>
     <servers />
   </component>
