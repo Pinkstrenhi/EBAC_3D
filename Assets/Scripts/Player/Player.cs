@@ -28,6 +28,7 @@ public class Player : Singleton<Player>
     [Space] 
         [SerializeField] private ClothChanger _clothChanger;
     private bool _alive = true;
+    private bool _jumping = false;
 
     protected override void Awake()
     {
@@ -59,10 +60,20 @@ public class Player : Singleton<Player>
         var movementVertical = transform.forward * inputAxisVertical* speedMovement;
         if (characterController.isGrounded)
         {
+            if (_jumping)
+            {
+                _jumping = false;
+                animator.SetTrigger("Landing");
+            }
             _speedVertical = 0;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 _speedVertical = speedJump;
+                if (!_jumping)
+                {
+                    _jumping = true;
+                    animator.SetTrigger("Jump");
+                }
             }
         }
         var isWalking = inputAxisVertical != 0;
