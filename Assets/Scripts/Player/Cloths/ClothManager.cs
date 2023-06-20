@@ -10,7 +10,8 @@ namespace Cloth
     {
         ClothBasic,
         ClothSpeed,
-        ClothStrength
+        ClothStrength,
+        ClothColor
     }
     public class ClothManager : Singleton<ClothManager>
     {
