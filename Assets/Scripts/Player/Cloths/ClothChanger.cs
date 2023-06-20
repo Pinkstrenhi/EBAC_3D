@@ -29,5 +29,10 @@ namespace Cloth
         {
             skinnedMeshRenderer.sharedMaterials[0].SetTexture(_shadeIdName, clothSetup.texture2D);
         }
+
+        public void ResetTexture()
+        {
+            skinnedMeshRenderer.sharedMaterials[0].SetTexture(_shadeIdName, _defaultTexture);
+        }
     }
 }

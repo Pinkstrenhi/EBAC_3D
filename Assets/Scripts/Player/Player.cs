@@ -26,7 +26,7 @@ public class Player : Singleton<Player>
     [Header("Life")]
         public HealthBase healthBase;
     [Space] 
-        public ClothChanger clothChanger;
+        [SerializeField] private ClothChanger _clothChanger;
     private bool _alive = true;
 
     protected override void Awake()
@@ -140,10 +140,10 @@ public class Player : Singleton<Player>
 
         private IEnumerator CoroutineChangeSpeed(float localSpeed, float duration)
         {
-            var defaultSpeed = speedRun;
-            speedRun = localSpeed;
+            var defaultSpeed = speedMovement;
+            speedMovement = localSpeed;
             yield return new WaitForSeconds(duration);
-            speedRun = defaultSpeed;
+            speedMovement = defaultSpeed;
         }
 
     #endregion
@@ -156,9 +156,9 @@ public class Player : Singleton<Player>
     }
     private IEnumerator CoroutineChangeCloth(ClothSetup clothSetup, float duration)
     {
-        
+        _clothChanger.ChangeTexture(clothSetup);
         yield return new WaitForSeconds(duration);
-        
+        _clothChanger.ResetTexture();
     }
 
     #endregion
