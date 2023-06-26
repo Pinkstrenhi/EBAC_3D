@@ -2645,6 +2645,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1581149671 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1649304936845953462, guid: d6b6f49cd1b14cb4abee3071f61dc957, type: 3}
+  m_PrefabInstance: {fileID: 5998297614761441744}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1587264463
 GameObject:
   m_ObjectHideFlags: 0
@@ -4275,7 +4286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5056464925118586341, guid: d6b6f49cd1b14cb4abee3071f61dc957, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: SCN_Art_3D
+      value: SCN_Art_3D_01
       objectReference: {fileID: 0}
     - target: {fileID: 5056464925118586341, guid: d6b6f49cd1b14cb4abee3071f61dc957, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -4309,6 +4320,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a568f10dd6d716b4bb7fd2badb03a557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5998297614761441748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5998297614761441746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b073217f8ab49814cae2ccc772ecd83c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiTextName: {fileID: 1581149671}
 --- !u!222 &6456199015041273327
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4454,6 +4478,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 313201028}
     m_Modifications:
+    - target: {fileID: 8100295685121972188, guid: 4fae31e7b5d2c9943a76f227c8455f07, type: 3}
+      propertyPath: _saveSetup.coins
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100295685121972188, guid: 4fae31e7b5d2c9943a76f227c8455f07, type: 3}
+      propertyPath: _saveSetup.health
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100295685121972188, guid: 4fae31e7b5d2c9943a76f227c8455f07, type: 3}
+      propertyPath: _saveSetup.lastLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100295685121972188, guid: 4fae31e7b5d2c9943a76f227c8455f07, type: 3}
+      propertyPath: _saveSetup.playerName
+      value: player
+      objectReference: {fileID: 0}
     - target: {fileID: 8100295685121972189, guid: 4fae31e7b5d2c9943a76f227c8455f07, type: 3}
       propertyPath: m_RootOrder
       value: 0

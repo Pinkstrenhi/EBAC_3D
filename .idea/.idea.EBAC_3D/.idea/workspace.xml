@@ -44,6 +44,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/Kill/KillEventHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/Magnetic/Magnetic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/Magnetic/MagneticTriggerPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/Play/PlayLevel.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -151,7 +152,7 @@
       <workItem from="1687464718691" duration="1878000" />
       <workItem from="1687735900525" duration="273000" />
       <workItem from="1687736221543" duration="3029000" />
-      <workItem from="1687744036816" duration="980000" />
+      <workItem from="1687744036816" duration="3534000" />
     </task>
     <servers />
   </component>

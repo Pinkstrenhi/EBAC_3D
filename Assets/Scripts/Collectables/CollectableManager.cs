@@ -19,6 +19,7 @@ namespace Collectables
         private void Start()
         {
             Reset();
+            LoadItemsFromSave();
         }
 
         private void Reset()
@@ -52,6 +53,12 @@ namespace Collectables
             {
                 collectable.soInt.value = 0;
             }
+        }
+
+        private void LoadItemsFromSave()
+        {
+            AddByType(CollectablesType.Coin,SaveManager.Instance.SaveSetup.coins);
+            AddByType(CollectablesType.LifePack,SaveManager.Instance.SaveSetup.health);
         }
         public CollectablesSetup GetCollectableByType(CollectablesType collectablesType)
         {

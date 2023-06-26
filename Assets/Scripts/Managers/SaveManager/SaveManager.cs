@@ -6,22 +6,43 @@ using Collectables;
 using UnityEngine;
 using NaughtyAttributes;
 using Core.Singleton;
+
 public class SaveManager : Singleton<SaveManager>
 {
-    private SaveSetup _saveSetup;
+    public int lastLevel;
+    public Action<SaveSetup> fileLoadedAction;
+    public float loadDelay = 0.1f;
+    [SerializeField]private SaveSetup _saveSetup;
+    private string _path = Application.streamingAssetsPath + "/save.txt";
+    public SaveSetup SaveSetup
+    {
+        get
+        {
+            return _saveSetup;
+        }
+    }
     protected override void Awake()
     {
         base.Awake();
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        Load();
+        Invoke(nameof(Load),loadDelay);
+    }
+
+    private void CreateNewSave()
+    {
         _saveSetup = new SaveSetup();
         _saveSetup.coins = 0;
         _saveSetup.health = 0;
-        _saveSetup.lastLevel = 2;
+        _saveSetup.lastLevel = 0;
         _saveSetup.playerName = "player";
     }
-
     #region Save
-        [Button]
+    [Button]
         private void Save()
         {
             var setupToJson = JsonUtility.ToJson(_saveSetup,true);
@@ -43,7 +64,7 @@ public class SaveManager : Singleton<SaveManager>
         private void SaveFile(string json)
         {
             //string path = Application.persistentDataPath + "/save.txt";
-            string path = Application.streamingAssetsPath + "/save.txt";
+            //string path = Application.streamingAssetsPath + "/save.txt";
             
             /*string fileLoaded = "";
             if (File.Exists(path))
@@ -51,8 +72,8 @@ public class SaveManager : Singleton<SaveManager>
                 fileLoaded = File.ReadAllText(path);
                 File.WriteAllText(path,json);
             }*/
-            Debug.Log(path);
-            File.WriteAllText(path,json);
+            Debug.Log(_path);
+            File.WriteAllText(_path,json);
         }
 
         public void SaveItems()
@@ -72,6 +93,28 @@ public class SaveManager : Singleton<SaveManager>
         {
             SaveLastLevel(5);
         }
+    #endregion
+
+    #region Load
+
+        [Button]
+        private void Load()
+        {
+            var fileLoaded = "";
+            if (File.Exists(_path))
+            {
+                fileLoaded = File.ReadAllText(_path);
+                _saveSetup = JsonUtility.FromJson<SaveSetup>(fileLoaded);
+                lastLevel = _saveSetup.lastLevel;
+            }
+            else
+            {
+                CreateNewSave();
+                Save();
+            }
+            fileLoadedAction.Invoke(_saveSetup);
+        }
+
     #endregion
 }
 [Serializable]
