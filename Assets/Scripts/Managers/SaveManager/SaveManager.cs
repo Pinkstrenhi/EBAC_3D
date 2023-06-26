@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using Collectables;
 using UnityEngine;
 using NaughtyAttributes;
 using Core.Singleton;
@@ -13,6 +14,8 @@ public class SaveManager : Singleton<SaveManager>
         base.Awake();
         DontDestroyOnLoad(gameObject);
         _saveSetup = new SaveSetup();
+        _saveSetup.coins = 0;
+        _saveSetup.health = 0;
         _saveSetup.lastLevel = 2;
         _saveSetup.playerName = "player";
     }
@@ -33,13 +36,14 @@ public class SaveManager : Singleton<SaveManager>
         public void SaveLastLevel(int level)
         {
             _saveSetup.lastLevel = level;
+            SaveItems();
             Save();
         }
 
         private void SaveFile(string json)
         {
-            string path = Application.persistentDataPath + "/save.txt";
-            //string path = Application.streamingAssetsPath + "/save.txt";
+            //string path = Application.persistentDataPath + "/save.txt";
+            string path = Application.streamingAssetsPath + "/save.txt";
             
             /*string fileLoaded = "";
             if (File.Exists(path))
@@ -49,6 +53,14 @@ public class SaveManager : Singleton<SaveManager>
             }*/
             Debug.Log(path);
             File.WriteAllText(path,json);
+        }
+
+        public void SaveItems()
+        {
+            _saveSetup.coins = Collectables.CollectableManager.Instance.
+                GetCollectableByType(Collectables.CollectablesType.Coin).soInt.value;
+            _saveSetup.health = Collectables.CollectableManager.Instance.
+                GetCollectableByType(Collectables.CollectablesType.LifePack).soInt.value;
         }
         [Button]
         private void SaveLevelOne()
@@ -65,6 +77,8 @@ public class SaveManager : Singleton<SaveManager>
 [Serializable]
 public class SaveSetup
 {
+    public int coins;
+    public int health;
     public int lastLevel;
     public string playerName;
 }
