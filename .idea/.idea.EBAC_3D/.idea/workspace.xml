@@ -39,7 +39,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/SaveManager/SaveManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Abilities/PlayerAbilityShoot.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Cloths/ClothManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Gun/UIUpdaterGun.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/Kill/KillEventHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/Magnetic/Magnetic.cs" root0="FORCE_HIGHLIGHTING" />
@@ -156,7 +155,7 @@
       <workItem from="1687805093932" duration="1157000" />
       <workItem from="1687830663009" duration="350000" />
       <workItem from="1687831052196" duration="1090000" />
-      <workItem from="1687836339143" duration="1751000" />
+      <workItem from="1687836339143" duration="3038000" />
     </task>
     <servers />
   </component>

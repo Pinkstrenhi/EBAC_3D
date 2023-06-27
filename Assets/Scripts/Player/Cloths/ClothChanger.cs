@@ -34,7 +34,7 @@ namespace Cloth
         public void ResetTexture()
         {
             skinnedMeshRenderer.sharedMaterials[0].SetTexture(_shadeIdName, _defaultTexture);
-            ClothManager.Instance.SaveCloth(_defaultTexture);
+            //ClothManager.Instance.SaveCloth(_defaultTexture);
         }
     }
 }

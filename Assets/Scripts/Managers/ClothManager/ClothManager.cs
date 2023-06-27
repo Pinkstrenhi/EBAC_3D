@@ -26,7 +26,6 @@ namespace Cloth
         {
             return clothSetups.Find(i => i.typeCloth == typeCloth);
         }
-
         public void SaveCloth(Texture2D texture2D)
         {
             texture2DLast = texture2D;
