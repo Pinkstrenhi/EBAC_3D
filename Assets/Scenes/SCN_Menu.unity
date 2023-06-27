@@ -4483,6 +4483,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8100295685121972188, guid: 4fae31e7b5d2c9943a76f227c8455f07, type: 3}
+      propertyPath: texture2DInitial
+      value: 
+      objectReference: {fileID: 2800000, guid: 8d0f7b33a4f3bf5459574270675b2718, type: 3}
+    - target: {fileID: 8100295685121972188, guid: 4fae31e7b5d2c9943a76f227c8455f07, type: 3}
       propertyPath: _saveSetup.health
       value: 5
       objectReference: {fileID: 0}
@@ -4490,6 +4494,10 @@ PrefabInstance:
       propertyPath: _saveSetup.lastLevel
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8100295685121972188, guid: 4fae31e7b5d2c9943a76f227c8455f07, type: 3}
+      propertyPath: _saveSetup.texture2D
+      value: 
+      objectReference: {fileID: 2800000, guid: 8d0f7b33a4f3bf5459574270675b2718, type: 3}
     - target: {fileID: 8100295685121972188, guid: 4fae31e7b5d2c9943a76f227c8455f07, type: 3}
       propertyPath: _saveSetup.playerName
       value: player

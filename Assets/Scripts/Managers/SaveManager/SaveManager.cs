@@ -83,6 +83,13 @@ public class SaveManager : Singleton<SaveManager>
             _saveSetup.health = Collectables.CollectableManager.Instance.
                 GetCollectableByType(Collectables.CollectablesType.LifePack).soInt.value;
         }
+
+        public void SaveCheckpoint(int id)
+        {
+            _saveSetup.checkpointId = id;
+            Save();
+            Debug.Log("Checkpoint Saved: " + id);
+        }
         [Button]
         private void SaveLevelOne()
         {
@@ -112,7 +119,7 @@ public class SaveManager : Singleton<SaveManager>
                 CreateNewSave();
                 Save();
             }
-            fileLoadedAction.Invoke(_saveSetup);
+            fileLoadedAction?.Invoke(_saveSetup);
         }
 
     #endregion
@@ -124,5 +131,6 @@ public class SaveSetup
     public int health;
     public int lastLevel;
     public string playerName;
+    public int checkpointId = -1;
 }
 
