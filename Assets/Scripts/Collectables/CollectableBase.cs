@@ -8,6 +8,7 @@ namespace Collectables
     [RequireComponent(typeof(Collider))]
     public class CollectableBase : MonoBehaviour
     {
+        public TypeSfx typeSfx;
         public CollectablesType collectablesType;
         public string compareTag = "Player";
         public ParticleSystem particleSystem;
@@ -15,7 +16,8 @@ namespace Collectables
         public GameObject graphicItem;
         public Collider[] colliders;
 
-        [Header("Sounds")] public AudioSource audioSource;
+        [Header("Sounds")] 
+            public AudioSource audioSource;
 
         private void Awake()
         {
@@ -37,6 +39,7 @@ namespace Collectables
 
         protected virtual void Collect()
         {
+            PlaySfx();
             if (colliders != null)
             {
                 foreach (var i in colliders)
@@ -70,6 +73,11 @@ namespace Collectables
                 audioSource.Play();
             }
             CollectableManager.Instance.AddByType(collectablesType);
+        }
+
+        private void PlaySfx()
+        {
+            SfxPool.Instance.Play(typeSfx);
         }
     }
 }

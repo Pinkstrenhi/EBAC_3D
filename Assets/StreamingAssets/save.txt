@@ -3,8 +3,8 @@
     "health": 5,
     "lastLevel": 1,
     "playerName": "player",
-    "checkpointId": -1,
+    "checkpointId": 2,
     "texture2D": {
-        "instanceID": 26432
+        "instanceID": 26428
     }
 }

@@ -6,6 +6,7 @@ using NaughtyAttributes;
 
 public class CheckpointBase : MonoBehaviour
 {
+    public TypeSfx typeSfx;
     public MeshRenderer meshRenderer;
     public int key = 1;
     private bool _checkpointActived = false;
@@ -32,6 +33,7 @@ public class CheckpointBase : MonoBehaviour
     }
     private void CheckCheckpoint()
     {
+        PlaySfx();
         TurnOn();
         SaveCheckpoint();
     }
@@ -59,5 +61,9 @@ public class CheckpointBase : MonoBehaviour
         }*/
         CheckpointManager.Instance.SaveCheckpoint(key);
         _checkpointActived = true;
+    }
+    private void PlaySfx()
+    {
+        SfxPool.Instance.Play(typeSfx);
     }
 }

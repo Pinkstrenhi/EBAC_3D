@@ -11,6 +11,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Inputs/Inputs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Actions/ActionLifePack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animation/AnimationBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/AudioTransition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/MusicPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Audio/SfxPool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Boss/BossBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Boss/BossStartCheck.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Boss/BossStates.cs" root0="FORCE_HIGHLIGHTING" />
@@ -38,6 +41,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager/Editor/PlayerManagerEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/SaveManager/SaveManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager/SoundManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Abilities/PlayerAbilityShoot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Cloths/ScriptableObjects/ClothStrengthSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Gun/UIUpdaterGun.cs" root0="FORCE_HIGHLIGHTING" />
@@ -157,7 +161,7 @@
       <workItem from="1687830663009" duration="350000" />
       <workItem from="1687831052196" duration="1090000" />
       <workItem from="1687836339143" duration="3510000" />
-      <workItem from="1687916524997" duration="3355000" />
+      <workItem from="1687916524997" duration="10026000" />
     </task>
     <servers />
   </component>

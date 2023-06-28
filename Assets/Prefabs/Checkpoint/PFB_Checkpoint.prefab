@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c93eedd6a7b08498103f22bd5fecec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typeSfx: 3
   meshRenderer: {fileID: 8361317825757151526}
   key: 0
 --- !u!136 &5432028883550827886

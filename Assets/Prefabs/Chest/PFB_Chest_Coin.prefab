@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1188ef5816083f940b5add79c726cdfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typeSfx: 4
   keyCode: 111
   animator: {fileID: 5826553368672307708}
   triggerOpen: Open
