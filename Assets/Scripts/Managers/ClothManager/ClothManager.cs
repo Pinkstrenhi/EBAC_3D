@@ -17,6 +17,8 @@ namespace Cloth
     {
         public List<ClothSetup> clothSetups;
         public Texture2D texture2DLast;
+        public TypeCloth typeClothLast;
+        //private ClothBaseSO _clothBaseSo;
         private void Start()
         {
             ClothLoad();
@@ -31,6 +33,10 @@ namespace Cloth
             texture2DLast = texture2D;
             SaveManager.Instance.SaveCloth(texture2DLast);
         }
+        /*public void SaveCloth(ClothBaseSO clothBaseSo)
+        {
+            _clothBaseSo = clothBaseSo;
+        }*/
         public void ClothLoad()
         {
             var clothTexture = SaveManager.Instance.SaveSetup.texture2D;
@@ -56,4 +62,38 @@ namespace Cloth
         public TypeCloth typeCloth;
         public Texture2D texture2D;
     }
+
+    /*[Serializable]
+    public class ClothBaseData
+    {
+        public TypeCloth typeCloth;
+        public float duration;
+    }
+    [Serializable]
+    public class ClothStrengthData : ClothBaseData
+    {
+        public float damageMultiply;
+    }
+    public ClothBaseData ConvertClothData(ClothBaseSO clothBaseSo)
+    {
+        ClothBaseData converted = null;
+        bool error = false;
+        if (clothBaseSo is ClothStrengthSO)
+        {
+            converted = new ClothStrengthData();
+            ((ClothStrengthData)converted).damageMultiply = ((ClothStrengthSO)clothBaseSo).damageMultiply;
+        }
+        else
+        {
+            error = true;
+        }
+
+        if (!error)
+        {
+            converted.duration = clothBaseSo.duration;
+            converted.typeCloth = clothBaseSo.typeCloth;
+        }
+
+        return converted;
+    }*/
 }

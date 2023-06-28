@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using Cloth;
 using Collectables;
 using UnityEngine;
 using NaughtyAttributes;

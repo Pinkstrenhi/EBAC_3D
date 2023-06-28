@@ -11,7 +11,13 @@ namespace Cloth
         public override void Collect()
         {
             base.Collect();
+            //ClothStrengthSO clothStrengthSo = (ClothStrengthSO)clothBaseSO;
+            //ApplyPowerUp(clothStrengthSo.damageMultiply,clothStrengthSo.duration);
             Player.Instance.healthBase.ChangeDamageMultiply(damageMultiply, duration);
         }
+        /*public static void ApplyPowerUp(float damageMultiply,float duration)
+        {
+            Player.Instance.healthBase.ChangeDamageMultiply(damageMultiply, duration);
+        }*/
     }
 }
