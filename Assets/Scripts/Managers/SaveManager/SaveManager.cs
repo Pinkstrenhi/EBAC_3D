@@ -92,11 +92,11 @@ public class SaveManager : Singleton<SaveManager>
             Debug.Log("Checkpoint Saved: " + id);
         }
 
-        public void SaveCloth(Texture2D texture2D)
+        public void SaveCloth(ClothBaseData clothBaseData)
         {
-            _saveSetup.texture2D = texture2D;
+            _saveSetup.clothBaseData = clothBaseData;
             Save();
-            Debug.Log("Save Texture");
+            Debug.Log("Save Cloth");
         }
         [Button]
         private void SaveLevelOne()
@@ -140,6 +140,6 @@ public class SaveSetup
     public int lastLevel;
     public string playerName;
     public int checkpointId = -1;
-    public Texture2D texture2D;
+    public ClothBaseData clothBaseData = null;
 }
 

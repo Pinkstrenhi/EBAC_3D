@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cloth;
 using UnityEngine;
 using Core.Singleton;
 using UnityEngine.Serialization;
@@ -25,6 +26,11 @@ public class CheckpointManager : Singleton<CheckpointManager>
         {
             lastCheckpointKey = checkpoint;
             SaveManager.Instance.SaveCheckpoint(lastCheckpointKey);
+            if (Cloth.ClothManager.Instance.clothBaseSo != null)
+            {
+                SaveManager.Instance.SaveCloth(Cloth.ClothManager.Instance.
+                    ConvertClothData(Cloth.ClothManager.Instance.clothBaseSo));
+            }
         }
     }
 

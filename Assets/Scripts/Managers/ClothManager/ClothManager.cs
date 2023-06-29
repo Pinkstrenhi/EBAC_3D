@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+//using Cloth;
 using UnityEngine;
 using Core.Singleton;
 
@@ -13,49 +14,59 @@ namespace Cloth
         ClothStrength,
         ClothColor
     }
+
     public class ClothManager : Singleton<ClothManager>
     {
         public List<ClothSetup> clothSetups;
         public Texture2D texture2DLast;
         public TypeCloth typeClothLast;
-        //private ClothBaseSO _clothBaseSo;
-        private void Start()
-        {
-            ClothLoad();
-        }
+        public ClothBaseSO clothBaseSo;
+        private int _clothReferenceId;
 
         public ClothSetup GetSetupByType(TypeCloth typeCloth)
         {
             return clothSetups.Find(i => i.typeCloth == typeCloth);
         }
-        public void SaveCloth(Texture2D texture2D)
+
+        public void SaveCloth(ClothBaseSO clothSo,int callerInstanceId)
         {
-            texture2DLast = texture2D;
-            SaveManager.Instance.SaveCloth(texture2DLast);
+            clothBaseSo = clothSo;
+            _clothReferenceId = callerInstanceId;
         }
-        /*public void SaveCloth(ClothBaseSO clothBaseSo)
+
+        public void RemoveCloth(int callerInstanceId)
         {
-            _clothBaseSo = clothBaseSo;
-        }*/
-        public void ClothLoad()
-        {
-            var clothTexture = SaveManager.Instance.SaveSetup.texture2D;
-            if (clothTexture != null)
+            if (_clothReferenceId == callerInstanceId)
             {
-                bool textureFound = false;
-                for (int i = 0; i < clothSetups.Count; i++)
-                {
-                    if (clothSetups[i].texture2D == clothTexture)
-                    {
-                        texture2DLast = clothTexture;
-                        Player.Instance.transform.GetComponent<ClothChanger>().texture2D = clothTexture;
-                        textureFound = true;
-                        break;
-                    }
-                }
+                _clothReferenceId = 0;
+                clothBaseSo = null;
             }
         }
+
+        public ClothBaseData ConvertClothData(ClothBaseSO clothBaseSo)
+        {
+            ClothBaseData converted = null;
+            bool error = false;
+            if (clothBaseSo is ClothStrengthSO)
+            {
+                converted = new ClothStrengthData();
+                ((ClothStrengthData)converted).damageMultiply = ((ClothStrengthSO)clothBaseSo).damageMultiply;
+            }
+            else
+            {
+                error = true;
+            }
+
+            if (!error)
+            {
+                converted.duration = clothBaseSo.duration;
+                converted.typeCloth = clothBaseSo.typeCloth;
+            }
+
+            return converted;
+        }
     }
+
     [Serializable]
     public class ClothSetup
     {
@@ -63,37 +74,16 @@ namespace Cloth
         public Texture2D texture2D;
     }
 
-    /*[Serializable]
+    [Serializable]
     public class ClothBaseData
     {
         public TypeCloth typeCloth;
         public float duration;
     }
+
     [Serializable]
     public class ClothStrengthData : ClothBaseData
     {
         public float damageMultiply;
     }
-    public ClothBaseData ConvertClothData(ClothBaseSO clothBaseSo)
-    {
-        ClothBaseData converted = null;
-        bool error = false;
-        if (clothBaseSo is ClothStrengthSO)
-        {
-            converted = new ClothStrengthData();
-            ((ClothStrengthData)converted).damageMultiply = ((ClothStrengthSO)clothBaseSo).damageMultiply;
-        }
-        else
-        {
-            error = true;
-        }
-
-        if (!error)
-        {
-            converted.duration = clothBaseSo.duration;
-            converted.typeCloth = clothBaseSo.typeCloth;
-        }
-
-        return converted;
-    }*/
 }

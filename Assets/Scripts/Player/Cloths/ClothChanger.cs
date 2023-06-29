@@ -28,13 +28,11 @@ namespace Cloth
         public void ChangeTexture(ClothSetup clothSetup)
         {
             skinnedMeshRenderer.sharedMaterials[0].SetTexture(_shadeIdName, clothSetup.texture2D);
-            ClothManager.Instance.SaveCloth(clothSetup.texture2D);
         }
 
         public void ResetTexture()
         {
             skinnedMeshRenderer.sharedMaterials[0].SetTexture(_shadeIdName, _defaultTexture);
-            //ClothManager.Instance.SaveCloth(_defaultTexture);
         }
     }
 }
