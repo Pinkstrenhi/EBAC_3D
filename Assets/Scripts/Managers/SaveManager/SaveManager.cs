@@ -15,11 +15,22 @@ public class SaveManager : Singleton<SaveManager>
     public float loadDelay = 0.1f;
     [SerializeField]private SaveSetup _saveSetup;
     private string _path = Application.streamingAssetsPath + "/save.txt";
+    private string _pathCloth = Application.streamingAssetsPath + "/saveCloth.txt";
     public SaveSetup SaveSetup
     {
         get
         {
             return _saveSetup;
+        }
+    }
+
+    private ClothBaseData _clothBaseDataSaved = null;
+
+    public ClothBaseData ClothSaved
+    {
+        get
+        {
+            return _clothBaseDataSaved;
         }
     }
     protected override void Awake()
@@ -48,7 +59,11 @@ public class SaveManager : Singleton<SaveManager>
         {
             var setupToJson = JsonUtility.ToJson(_saveSetup,true);
             Debug.Log(setupToJson);
-            SaveFile(setupToJson);
+            SaveFile(setupToJson,_path);
+            
+            setupToJson = JsonUtility.ToJson(_clothBaseDataSaved,true);
+            Debug.Log(setupToJson);
+            SaveFile(setupToJson,_pathCloth);
         }
         public void SaveName(string text)
         {
@@ -62,7 +77,7 @@ public class SaveManager : Singleton<SaveManager>
             Save();
         }
 
-        private void SaveFile(string json)
+        private void SaveFile(string json,string path)
         {
             //string path = Application.persistentDataPath + "/save.txt";
             //string path = Application.streamingAssetsPath + "/save.txt";
@@ -73,8 +88,8 @@ public class SaveManager : Singleton<SaveManager>
                 fileLoaded = File.ReadAllText(path);
                 File.WriteAllText(path,json);
             }*/
-            Debug.Log(_path);
-            File.WriteAllText(_path,json);
+            Debug.Log(path);
+            File.WriteAllText(path,json);
         }
 
         public void SaveItems()
@@ -94,7 +109,7 @@ public class SaveManager : Singleton<SaveManager>
 
         public void SaveCloth(ClothBaseData clothBaseData)
         {
-            _saveSetup.clothBaseData = clothBaseData;
+            _saveSetup.clothData = clothBaseData;
             Save();
             Debug.Log("Save Cloth");
         }
@@ -127,6 +142,12 @@ public class SaveManager : Singleton<SaveManager>
                 CreateNewSave();
                 Save();
             }
+
+            if (File.Exists(_pathCloth))
+            {
+                fileLoaded = File.ReadAllText(_pathCloth);
+                _clothBaseDataSaved = JsonUtility.FromJson<ClothBaseData>(fileLoaded);
+            }
             fileLoadedAction?.Invoke(_saveSetup);
         }
 
@@ -140,6 +161,5 @@ public class SaveSetup
     public int lastLevel;
     public string playerName;
     public int checkpointId = -1;
-    public ClothBaseData clothBaseData = null;
 }
 

@@ -9,7 +9,7 @@ namespace Cloth
         public override void Collect()
         {
             base.Collect();
-            ClothStrengthSO clothStrengthSo = (ClothStrengthSO)clothBaseSO;
+            ClothStrengthSO clothStrengthSo = (ClothStrengthSO)clothBaseSo;
             ApplyPowerUp(clothStrengthSo.damageMultiply,clothStrengthSo.duration);
         }
         public static void ApplyPowerUp(float damageMultiply,float duration)
