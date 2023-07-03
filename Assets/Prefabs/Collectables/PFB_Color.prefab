@@ -46,9 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c08fcafb9e3b92c408da41d9be646fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeCloth: 3
   compareTag: Player
-  duration: 2
+  clothBaseSo: {fileID: 11400000, guid: d2fd0070ca159814fb4ba6f33ee37df5, type: 2}
 --- !u!135 &584067102996975630
 SphereCollider:
   m_ObjectHideFlags: 0

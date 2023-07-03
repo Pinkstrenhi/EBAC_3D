@@ -1,10 +1,7 @@
 {
-    "coins": 5,
-    "health": 5,
-    "lastLevel": 1,
+    "coins": 0,
+    "health": 0,
+    "lastLevel": 0,
     "playerName": "player",
-    "checkpointId": 2,
-    "texture2D": {
-        "instanceID": 26428
-    }
+    "checkpointId": 2
 }

@@ -109,18 +109,18 @@ public class SaveManager : Singleton<SaveManager>
 
         public void SaveCloth(ClothBaseData clothBaseData)
         {
-            _saveSetup.clothData = clothBaseData;
+            _clothBaseDataSaved = clothBaseData;
             Save();
             Debug.Log("Save Cloth");
         }
         [Button]
         private void SaveLevelOne()
-        {
+        { 
             SaveLastLevel(1);
         } 
         [Button]
         private void SaveLevelFive()
-        {
+        { 
             SaveLastLevel(5);
         }
     #endregion
@@ -129,7 +129,7 @@ public class SaveManager : Singleton<SaveManager>
 
         [Button]
         private void Load()
-        {
+        { 
             var fileLoaded = "";
             if (File.Exists(_path))
             {
