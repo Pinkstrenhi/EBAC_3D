@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening.Core.Easing;
-using UnityEditor.SceneManagement;
+//using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
