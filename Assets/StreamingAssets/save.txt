@@ -3,5 +3,5 @@
     "health": 0,
     "lastLevel": 0,
     "playerName": "player",
-    "checkpointId": 2
+    "checkpointId": 1
 }
