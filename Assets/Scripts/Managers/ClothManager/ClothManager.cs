@@ -56,6 +56,11 @@ namespace Cloth
                 converted = new ClothStrengthData();
                 ((ClothStrengthData)converted).damageMultiply = ((ClothStrengthSO)clothBaseSo).damageMultiply;
             }
+            else if (clothBaseSo is ClothSpeedSO)
+            {
+                converted = new ClothBaseData();
+                ((ClothSpeedData)converted).targetSpeed = ((ClothSpeedSO)clothBaseSo).targetSpeed;
+            }
             else
             {
                 error = true;
@@ -89,5 +94,11 @@ namespace Cloth
     public class ClothStrengthData : ClothBaseData
     {
         public float damageMultiply;
+    }
+    
+    [Serializable]
+    public class ClothSpeedData : ClothBaseData
+    {
+        public float targetSpeed;
     }
 }

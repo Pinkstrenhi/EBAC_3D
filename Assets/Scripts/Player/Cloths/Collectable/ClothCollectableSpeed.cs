@@ -6,12 +6,18 @@ namespace Cloth
 {
     public class ClothCollectableSpeed : ClothCollectableBase
     {
-        public float targetSpeed = 2f;
+       // public float targetSpeed = 2f;
         
         public override void Collect()
         {
+            ClothSpeedSO clothSpeedSo = (ClothSpeedSO)clothBaseSo;
+            ApplyPowerUp(clothSpeedSo.targetSpeed,clothSpeedSo.duration);
             base.Collect();
-            //Player.Instance.ChangeSpeed(targetSpeed,duration);
+        }
+
+        public static void ApplyPowerUp(float targetSpeed, float duration)
+        {
+            Player.Instance.ChangeSpeed(targetSpeed,duration);
         }
     }
 }

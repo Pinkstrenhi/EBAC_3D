@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   compareTag: Player
-  clothBaseSo: {fileID: 11400000, guid: d2fd0070ca159814fb4ba6f33ee37df5, type: 2}
+  clothBaseSo: {fileID: 11400000, guid: 2a547a303b715e749a8e12ebcc45afb1, type: 2}
   targetSpeed: 50
 --- !u!135 &4449372752659163806
 SphereCollider:
